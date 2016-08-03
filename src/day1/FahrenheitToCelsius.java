@@ -1,4 +1,4 @@
-package src; /**
+package src.day1; /**
  * Created by vsanghav on 8/2/2016.
  */
 
