@@ -13,10 +13,12 @@ public class Casino {
 
     public static void main(String[] args){
 
+        int numberOfWheels = Casino_Wheel.values().length;
+        Casino_Wheel[] wheels = Casino_Wheel.values();
         for(int i=0;i<3;i++){
 
-            int randomValue = ThreadLocalRandom.current().nextInt(Casino_Wheel.values().length);
-            System.out.println(Casino_Wheel.values()[randomValue]);
+            int randomValue = ThreadLocalRandom.current().nextInt(numberOfWheels);
+            System.out.println(wheels[randomValue]);
         }
     }
 }
