@@ -5,7 +5,7 @@ package src.day5;
  */
 public class BadDay extends Exception{
 
-    public BadDay(Throwable cause){
+    public BadDay(String cause){
         super(cause);
     }
 }

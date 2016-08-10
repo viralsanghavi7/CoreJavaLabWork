@@ -22,10 +22,10 @@ public class CustomException {
             m = Months.valueOf(month);
 
         }catch(IllegalArgumentException e){
-            throw new BadMonth(new Throwable("Invalid month name"));
+            throw new BadMonth("Not a valid month: "+ e.getMessage());
         }
         if(days[m.ordinal()]!=day){
-                throw new BadDay(new Throwable("Not valid number of days in this month"));
+            throw new BadDay("Not valid number of days in this month");
         }
 
         System.out.println("Valid combination! Good job");
@@ -46,9 +46,9 @@ public class CustomException {
                 days = Integer.parseInt(sc.nextLine());
                 c.isValid(month,days);
             } catch(BadMonth bm) {
-                System.out.println(bm.getCause());
+                System.out.println(bm.getMessage());
             } catch (BadDay bd) {
-                System.out.println(bd.getCause());
+                System.out.println(bd.getMessage());
             }
 
         } while(!month.equalsIgnoreCase("Quit"));
