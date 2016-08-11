@@ -22,7 +22,7 @@ public class CustomException {
             m = Months.valueOf(month);
 
         }catch(IllegalArgumentException e){
-            throw new BadMonth("Not a valid month: "+ e.getMessage());
+            throw new BadMonth("Not a valid month",e);
         }
         if(days[m.ordinal()]!=day){
             throw new BadDay("Not valid number of days in this month");
@@ -47,6 +47,7 @@ public class CustomException {
                 c.isValid(month,days);
             } catch(BadMonth bm) {
                 System.out.println(bm.getMessage());
+                System.out.println(bm.getCause());
             } catch (BadDay bd) {
                 System.out.println(bd.getMessage());
             }

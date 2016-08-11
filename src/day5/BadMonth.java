@@ -5,7 +5,7 @@ package src.day5;
  */
 public class BadMonth extends Exception{
 
-    public BadMonth(String cause){
-        super(cause);
+    public BadMonth(String message, Throwable cause){
+        super(message, cause);
     }
 }
