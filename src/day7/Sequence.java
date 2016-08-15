@@ -10,16 +10,15 @@ public class Sequence {
     private int SIZE_LIMIT = 0;
     private int count=0;
     private String[] data;
-    SequenceIterator iterator = new SequenceIterator();
+    SequenceIterator iterator;
 
     public Sequence(int size){
         this.SIZE_LIMIT = size;
         data = new String[size];
-        iterator = new SequenceIterator();
     }
 
-    public Iterator<Object> iterator(){
-        return new SequenceIterator();
+    public Iterator<String> iterator(){
+        return new SequenceIterator<String>();
     }
 
     public void add(Object o) throws SizeFull {
@@ -31,7 +30,7 @@ public class Sequence {
     }
 
     public Object get(int idx){
-        return iterator.next();
+        return data[idx];
     }
 
 

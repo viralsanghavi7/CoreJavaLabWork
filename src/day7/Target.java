@@ -22,14 +22,6 @@ public class Target {
     public static class Builder{
         private Target t;
 
-        public Builder(String name, int contact, int age, int workExperience, String city){
-            t = new Target();
-            t.name = name;
-            t.contact = contact;
-            t.age = age;
-            t.workExperience = workExperience;
-            t.city = city;
-        }
 
         public Target build(){
             if(t.isValid()==true)
@@ -42,24 +34,29 @@ public class Target {
             t = new Target();
         }
 
-        public void setName(String name){
+        public Target.Builder name(String name){
             t.name = name;
+            return this;
         }
 
-        public void setContact(int contact){
+        public Target.Builder contact(int contact){
             t.contact = contact;
+            return this;
         }
 
-        public void setAge(int age){
+        public Target.Builder age(int age){
             t.age = age;
+            return this;
         }
 
-        public void setWorkExperience(int workExperience){
+        public Target.Builder workExperience(int workExperience){
             t.workExperience = workExperience;
+            return this;
         }
 
-        public void setCity(String city){
+        public Target.Builder city(String city){
             t.city = city;
+            return this;
         }
 
     }
