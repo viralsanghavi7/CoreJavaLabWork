@@ -1,35 +1,38 @@
 package src.day7;
 
+import java.lang.reflect.Array;
 import java.util.Iterator;
 
 /**
  * Created by vsanghav on 8/12/2016.
  */
-public class Sequence {
+public class Sequence<T> {
 
     private int SIZE_LIMIT = 0;
     private int count=0;
-    private String[] data;
+    private T[] data;
     SequenceIterator iterator;
 
-    public Sequence(int size){
+    @SuppressWarnings("unchecked")
+    public Sequence(Class<T> clazz,int size){
         this.SIZE_LIMIT = size;
-        data = new String[size];
+        //data = new String[size];
+        data = (T[]) Array.newInstance(clazz, size);
     }
 
-    public Iterator<String> iterator(){
-        return new SequenceIterator<String>();
+    public Iterator<T> iterator(){
+        return new SequenceIterator();
     }
 
-    public void add(Object o) throws SizeFull {
+    public void add(T o) throws SizeFull {
         if(count == SIZE_LIMIT)
             throw new SizeFull();
         else
-            data[count] = (String) o;
+            data[count] = o;
             count++;
     }
 
-    public Object get(int idx){
+    public T get(int idx){
         return data[idx];
     }
 
@@ -38,14 +41,7 @@ public class Sequence {
         return count;
     }
 
-    class SizeFull extends Exception{
-
-        public SizeFull(){
-            System.out.println("The container is full with data, no space to accept new entry");
-        }
-    }
-
-    class SequenceIterator<E> implements Iterator<E>{
+    class SequenceIterator implements Iterator<T>{
 
 
         int progress=0;
@@ -56,8 +52,8 @@ public class Sequence {
         }
 
         @Override
-        public E next() {
-            return (E)data[progress++];
+        public T next() {
+            return data[progress++];
         }
 
         public void remove(){

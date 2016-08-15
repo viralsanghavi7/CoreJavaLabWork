@@ -1,7 +1,6 @@
 package src.day7;
 
 import java.util.Iterator;
-
 /**
  * Created by vsanghav on 8/12/2016.
  */
@@ -10,7 +9,7 @@ public class SequenceMain {
     public static void main(String[] args){
 
         try {
-            Sequence s = new Sequence(3);
+            Sequence<String> s = new Sequence<>(String.class,3);
             s.add("Hello");
             s.add("there");
             s.add("done");
@@ -28,7 +27,7 @@ public class SequenceMain {
             assert i2.next().equals("there");
             assert i2.next().equals("done");
             assert i2.hasNext() == false;
-        }catch (Sequence.SizeFull e){
+        }catch (SizeFull e){
             System.out.println(e.getCause());
         }
 
