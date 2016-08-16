@@ -2,16 +2,16 @@ package src.day7;
 
 import java.lang.reflect.Array;
 import java.util.Iterator;
+import java.util.function.Consumer;
 
 /**
  * Created by vsanghav on 8/12/2016.
  */
-public class Sequence<T> {
+public class Sequence<T>  implements Iterable<T>{
 
     private int SIZE_LIMIT = 0;
     private int count=0;
     private T[] data;
-    SequenceIterator iterator;
 
     @SuppressWarnings("unchecked")
     public Sequence(Class<T> clazz,int size){
