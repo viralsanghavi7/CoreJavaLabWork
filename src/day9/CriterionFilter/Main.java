@@ -12,20 +12,23 @@ public class Main {
     public static void main(String[] args){
 
         List<String> ls = Arrays.asList(
-                "Fred", "Jim", "William", "Susannah", "Lucy", "Orinoco", "Toby"
+                "Nitin", "Jim", "William", "Susannah", "Lucy", "Orinoco", "Toby"
         );
-        List<String> longStrings = getLongStrings(ls,6);
-        assert longStrings.size() == 3;
-        assert longStrings.get(0).equals("William");
-        assert longStrings.get(1).equals("Susannah");
-        assert longStrings.get(2).equals("Orinoco");
 
-        List<String> longStrings1 = getLongStrings(ls,3);
-        assert longStrings1.size() == 6;
+        StringCriterion firstLetter = new FirstLetter();
+        StringCriterion threshold = new Threshold(6);
+        StringCriterion palindrome = new Palindrome();
+
+
+        assert stringFilter(ls,firstLetter).size() == 2;
+        assert stringFilter(ls,threshold).size() == 3;
+        assert stringFilter(ls,palindrome).size() == 1;
+
+
 
     }
 
-    public static List<String> getLongStrings(List<String> ls, int threshold ){
+/*    public static List<String> getLongStrings(List<String> ls, int threshold ){
         List<String> result = new ArrayList<>();
 
         for(String s:ls){
@@ -34,5 +37,16 @@ public class Main {
         }
         return result;
 
+    }*/
+
+
+    public static List<String> stringFilter(List<String> ls, StringCriterion filter){
+        List<String> result = new ArrayList<>();
+        for(String s:ls){
+            if(filter.test(s)==true)
+                result.add(s);
+        }
+
+        return result;
     }
 }
