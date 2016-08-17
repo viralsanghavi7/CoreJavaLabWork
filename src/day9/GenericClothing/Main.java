@@ -19,24 +19,20 @@ public class Main {
         GlassVase gv = new GlassVase(15);
 
 
-        ClothingPair[] pairs = {
+        ClothingPair<?>[] pairs = {
                 new ClothingPair<>(g1, g2),
                 new ClothingPair<>(s1, s2),
-                new ClothingPair<>(g1, s1),
-                new ClothingPair(f,s1),
+                new ClothingPair<>(g1, s1)
+               // new ClothingPair<>(f,s1),
         };
 
 
-        for(ClothingPair pair: pairs){
+        for(ClothingPair<?> pair: pairs){
             System.out.println(pair.isSameClass());
         }
 
-        for(ClothingPair pair: pairs){
+        for(ClothingPair<?> pair: pairs){
             System.out.println(pair.isMatched());
         }
-
-
-
-
     }
 }

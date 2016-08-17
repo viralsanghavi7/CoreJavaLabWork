@@ -3,7 +3,7 @@ package src.day9.CriterionFilter;
 /**
  * Created by vsanghav on 8/16/2016.
  */
-public class IntegerThreshold<T> implements Criterion<T> {
+public class IntegerThreshold implements Criterion<Integer> {
 
     int num;
     public IntegerThreshold(int num){
@@ -11,8 +11,8 @@ public class IntegerThreshold<T> implements Criterion<T> {
     }
 
     @Override
-    public boolean test(T s) {
-        if((Integer)s > num)
+    public boolean test(Integer s) {
+        if((int)s > num)
             return true;
         return false;
     }
