@@ -11,7 +11,7 @@ import java.util.function.Predicate;
  * Created by vsanghav on 8/16/2016.
  */
 public class Main {
-
+    
     public static void main(String[] args){
 
 
@@ -19,7 +19,17 @@ public class Main {
         List<String> ls = Arrays.asList(
                 "Nitin", "Jim", "William", "Susannah", "Lucy", "Orinoco", "Toby"
         );
-        Predicate<String> palindrome = new Palindrome();
+        Predicate palindrome = new Predicate<String>() {
+            @Override
+            public boolean test(String s) {
+                s = s.toLowerCase();
+                for(int i=0;i<s.length()/2;i++){
+                    if(s.charAt(i)!= s.charAt(s.length()-1-i))
+                        return false;
+                }
+                return true;
+            }
+        };
         Filter<String> stringFilter = new Filter<>();
         assert stringFilter.filter(ls,palindrome).size() == 1;
 
