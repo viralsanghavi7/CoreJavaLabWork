@@ -36,22 +36,19 @@ public class Main {
         // --------------- for Integer ---------------------------//
         List<Integer> li = Arrays.asList(5,50,34,67,101);
         Filter<Integer> integerFilter = new Filter<>();
-        Predicate<Integer> greaterThanInteger = (Integer s) -> {
+        Predicate<Integer> greaterThanInteger = s -> (int) s > INTEGER_LIMIT;
+        /*(Integer s) -> {
             if((int)s > INTEGER_LIMIT)
                 return true;
             return false;
-        };
+        };*/
         assert integerFilter.filter(li,greaterThanInteger).size() == 4;
 
 
         // --------------- for LocalDate ---------------------------//
         List<LocalDate> ld = Arrays.asList(LocalDate.now(), LocalDate.now().minus(5, ChronoUnit.DAYS), LocalDate.now().plus(5,ChronoUnit.DAYS));
         Filter<LocalDate> dateFilter = new Filter<>();
-        Predicate<LocalDate> greaterThanDay = (LocalDate s) ->{
-            if(s.getDayOfMonth()<DAY_LIMIT)
-                return true;
-            return false;
-        };
+        Predicate<LocalDate> greaterThanDay = s -> s.getDayOfMonth() < DAY_LIMIT;
         assert dateFilter.filter(ld,greaterThanDay).size() == 1;
     }
 }
