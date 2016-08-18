@@ -5,6 +5,7 @@ import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.function.Predicate;
 
 /**
  * Created by vsanghav on 8/16/2016.
@@ -18,21 +19,21 @@ public class Main {
         List<String> ls = Arrays.asList(
                 "Nitin", "Jim", "William", "Susannah", "Lucy", "Orinoco", "Toby"
         );
-        Criterion<String> palindrome = new Palindrome();
+        Predicate<String> palindrome = new Palindrome();
         Filter<String> stringFilter = new Filter<>();
         assert stringFilter.filter(ls,palindrome).size() == 1;
 
         // --------------- for Integer ---------------------------//
         List<Integer> li = Arrays.asList(5,50,34,67,101);
         Filter<Integer> integerFilter = new Filter<>();
-        Criterion<Integer> greaterThanInteger = new IntegerThreshold(5);
+        Predicate<Integer> greaterThanInteger = new IntegerThreshold(5);
         assert integerFilter.filter(li,greaterThanInteger).size() == 4;
 
 
         // --------------- for LocalDate ---------------------------//
         List<LocalDate> ld = Arrays.asList(LocalDate.now(), LocalDate.now().minus(5, ChronoUnit.DAYS), LocalDate.now().plus(5,ChronoUnit.DAYS));
         Filter<LocalDate> dateFilter = new Filter<>();
-        Criterion<LocalDate> greaterThanDay = new DateThreshold(15);
+        Predicate<LocalDate> greaterThanDay = new DateThreshold(15);
         assert dateFilter.filter(ld,greaterThanDay).size() == 1;
     }
 }

@@ -1,9 +1,11 @@
 package src.day9.CriterionFilter;
 
+import java.util.function.Predicate;
+
 /**
  * Created by vsanghav on 8/16/2016.
  */
-public class FirstLetter implements Criterion<String> {
+public class FirstLetter implements Predicate<String> {
 
     @Override
     public boolean test(String t) {

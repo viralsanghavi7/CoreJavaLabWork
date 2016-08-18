@@ -1,9 +1,11 @@
 package src.day9.CriterionFilter;
 
+import java.util.function.Predicate;
+
 /**
  * Created by vsanghav on 8/16/2016.
  */
-public class IntegerThreshold implements Criterion<Integer> {
+public class IntegerThreshold implements Predicate<Integer> {
 
     int num;
     public IntegerThreshold(int num){

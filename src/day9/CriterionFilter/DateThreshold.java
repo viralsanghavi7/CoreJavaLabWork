@@ -1,11 +1,12 @@
 package src.day9.CriterionFilter;
 
 import java.time.LocalDate;
+import java.util.function.Predicate;
 
 /**
  * Created by vsanghav on 8/16/2016.
  */
-public class DateThreshold implements Criterion<LocalDate> {
+public class DateThreshold implements Predicate<LocalDate> {
 
     int day;
 
